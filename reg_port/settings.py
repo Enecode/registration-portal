@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import environ
 import dj_database_url
+import urllib.parse
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,8 +94,14 @@ DATABASES = {
     }
 }
 
-database_url =  os.environ.get("DATABASE_URL")
+# database_url =  os.environ.get("DATABASE_URL")
+# DATABASES["default"] = dj_database_url.parse(database_url)
+
+
+database_url = os.environ.get("DATABASE_URL")
+database_url = urllib.parse.unquote(database_url)  
 DATABASES["default"] = dj_database_url.parse(database_url)
+
 
 
 # Password validation
