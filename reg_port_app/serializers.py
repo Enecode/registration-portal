@@ -1,22 +1,15 @@
 from rest_framework import serializers
 from .models import User, Admin
 from rest_framework import serializers
+from django.contrib.auth.hashers import make_password
+from rest_framework import serializers, status
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [
-            'first_name', 
-            'last_name', 
-            'email', 
-            'phone', 
-            'occupation',
-            'address', 
-            'last_bus_stop', 
-            'state', 
-            'visiting', 
-            'gender', 
-            'id']
+        fields = '__all__'
    
 
 class UserSearchSerializer(serializers.ModelSerializer):
@@ -36,9 +29,13 @@ class UserSearchSerializer(serializers.ModelSerializer):
             'id'
         ]
 
-class AdminSignUpSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True)
+class AdminSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Admin
+    fields = ['id', 'first_name', 'last_name', 'email', 'username', 'password']
+    extra_kwargs = {'password': {'write_only': True}}  # Ensure password is write-only
 
-    class Meta:
-        model = Admin
-        fields = ('username', 'password', 'first_name', 'last_name', 'email')
+  def create(self, validated_data):
+    password = validated_data.pop('password')
+    validated_data['password'] = make_password(password)  # Hash password before saving
+    return Admin.objects.create(**validated_data)

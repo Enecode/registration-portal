@@ -32,14 +32,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+# DEBUG = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 3600  # Or any other non-zero value
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_PRELOAD = True
-
-
-
 
 
 ALLOWED_HOSTS = ["*"]
@@ -49,6 +47,7 @@ INSTALLED_APPS = [
     'reg_port_app',
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt.token_blacklist',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,14 +103,9 @@ DATABASES = {
     }
 }
 
-# database_url =  os.environ.get("DATABASE_URL")
+DATABASE_URL =  os.environ.get("DATABASE_URL")
 # DATABASES["default"] = dj_database_url.parse(database_url)
-database_url = os.environ.get("DATABASE_URL")
-
 # database_url = os.environ.get("DATABASE_URL")
-# database_url = urllib.parse.unquote(database_url)  
-# DATABASES["default"] = dj_database_url.parse(database_url)
-
 
 
 # Password validation
