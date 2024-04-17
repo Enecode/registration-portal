@@ -36,16 +36,17 @@ DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 3600  # Or any other non-zero value
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_PRELOAD = True
+# SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_PRELOAD = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 
 ]
 CORS_ALLOW_CREDENTIALS = True 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+CORS_ALLOW_ALL_ORIGINS = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ["*"]
 # Application definition
@@ -95,7 +96,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'reg_port.wsgi.application'
 
-CORS_ALLOW_ALL_ORIGINS = True
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
