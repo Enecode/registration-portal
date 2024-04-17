@@ -4,14 +4,13 @@ from django.db import models
 
 class User(models.Model):
     GENDER_STATUS = (
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other'),
+        ('M', 'Male'),
+        ('F', 'Female'),
     )
 
     VISITOR = (
-        ('yes', 'Yes'),
-        ('no', 'No'),
+        ('Y', 'Yes'),
+        ('N', 'No'),
     )
 
     first_name = models.CharField(max_length=100)
