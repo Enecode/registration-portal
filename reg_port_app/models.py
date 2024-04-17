@@ -9,8 +9,8 @@ class User(models.Model):
     )
 
     VISITOR = (
-        ('Y', 'Yes'),
-        ('N', 'No'),
+        ('yes', 'Yes'),
+        ('no', 'No'),
     )
 
     first_name = models.CharField(max_length=100)
