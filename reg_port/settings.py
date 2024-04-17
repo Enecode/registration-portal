@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 # DEBUG = True
 CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 3600  # Or any other non-zero value
 # SECURE_SSL_REDIRECT = True
 # SECURE_HSTS_PRELOAD = True
