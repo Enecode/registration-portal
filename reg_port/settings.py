@@ -38,11 +38,7 @@ DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 SECURE_HSTS_SECONDS = 3600  # Or any other non-zero value
 # SECURE_SSL_REDIRECT = True
 # SECURE_HSTS_PRELOAD = True
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-
-]
+# CORS_ALLOWED_ORIGINS = ["*"]
 CORS_ALLOW_CREDENTIALS = True 
 CORS_ALLOW_ALL_ORIGINS = True
 # SESSION_COOKIE_SECURE = True
