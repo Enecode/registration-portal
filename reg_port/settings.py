@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import environ
-import dj_database_url
-import urllib.parse
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,20 +27,14 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 # DEBUG = True
-# CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 3600  # Or any other non-zero value
-# SECURE_SSL_REDIRECT = True
-# SECURE_HSTS_PRELOAD = True
-# CORS_ALLOWED_ORIGINS = ["*"]
+
 CORS_ALLOW_CREDENTIALS = True 
 CORS_ALLOW_ALL_ORIGINS = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ["*"]
 # Application definition
@@ -51,7 +43,7 @@ INSTALLED_APPS = [
     'reg_port_app',
     'rest_framework',
     'corsheaders',
-    'rest_framework_simplejwt',
+    # 'rest_framework_simplejwt',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
