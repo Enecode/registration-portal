@@ -93,18 +93,18 @@ WSGI_APPLICATION = 'reg_port.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
 
-# DATABASE_URL =  os.environ.get("DATABASE_URL")
+DATABASE_URL =  os.environ.get("DATABASE_URL")
 # DATABASES["default"] = dj_database_url.parse(database_url)
 # database_url = os.environ.get("DATABASE_URL")
 
